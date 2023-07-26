@@ -8,7 +8,7 @@ import { deskTool } from "sanity/desk";
 import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
 import { noteField } from "sanity-plugin-note-field";
 
-import { apiVersion, dataset, projectId } from "@/sanity/env";
+import { apiVersion, dataset, projectId, studioName } from "@/sanity/env";
 import { previewSecretId } from "@/sanity/lib/api";
 import { productionUrl } from "@/sanity/plugins/ProductionUrl";
 import { pageStructure, singletonPlugin } from "@/sanity/plugins/settings";
@@ -21,7 +21,7 @@ const devOnlyPlugins = [visionTool()];
 
 export default defineConfig({
     basePath: "/studio",
-    name: process.env.SANITY_STUDIO_NAME,
+    name: studioName,
     projectId,
     dataset,
     // Add and edit the content schema in the './sanity/schema' folder
