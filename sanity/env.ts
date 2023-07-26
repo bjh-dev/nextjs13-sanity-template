@@ -9,6 +9,11 @@ function assertValue<T>(v: T | undefined, errorMessage: string): T {
     return v;
 }
 
+export const studioName = assertValue(
+    process.env.NEXT_PUBLIC_SANITY_STUDIO_NAME,
+    "Missing environment variable: NEXT_PUBLIC_SANITY_STUDIO_NAME"
+);
+
 export const dataset = assertValue(
     process.env.NEXT_PUBLIC_SANITY_DATASET,
     "Missing environment variable: NEXT_PUBLIC_SANITY_DATASET"
