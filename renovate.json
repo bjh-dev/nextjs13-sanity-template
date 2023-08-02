@@ -3,7 +3,7 @@
   "extends": ["config:base"],
   "packageRules": [
     {
-      "extends": ["monorepo:sanity", "monorepo:next"],
+      "extends": ["monorepo:sanity", "monorepo:nextjs"],
       "matchUpdateTypes": ["patch", "minor"],
       "automerge": true
     },
