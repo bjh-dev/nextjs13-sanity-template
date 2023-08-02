@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
     return {
         title: "Our Posts",
-        description: "A collection of posts",
+        description: "A collection of our posts",
         openGraph: {
             title: "Our Posts",
             description: "A collection of posts",
