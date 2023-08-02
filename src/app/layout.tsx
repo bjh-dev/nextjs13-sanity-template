@@ -2,9 +2,9 @@ import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/react";
 import { Metadata } from "next";
-import React from "react";
 // eslint-disable-next-line camelcase
 import { Inter, Roboto_Mono } from "next/font/google";
+import React from "react";
 
 if (process.env.NODE_ENV === "production") {
     // eslint-disable-next-line no-console, func-names, @typescript-eslint/no-empty-function
