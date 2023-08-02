@@ -4,36 +4,36 @@
 // It's part of the Studio's “Structure Builder API” and is documented here:
 // https://www.sanity.io/docs/structure-builder-reference
 
-import { DefaultDocumentNodeResolver } from "sanity/desk";
+import { DefaultDocumentNodeResolver } from 'sanity/desk'
 
-import { PreviewPane } from "@/sanity/plugins/PreviewPane/PreviewPane";
-import { PREVIEWABLE_DOCUMENT_TYPES } from "@/sanity/schemas/schema";
+import { PreviewPane } from '@/sanity/plugins/PreviewPane/PreviewPane'
+import { PREVIEWABLE_DOCUMENT_TYPES } from '@/sanity/schemas/schema'
 
 export const previewDocumentNode = ({
-    apiVersion,
-    previewSecretId,
+  apiVersion,
+  previewSecretId,
 }: {
-    apiVersion: string;
-    previewSecretId: `${string}.${string}`;
+  apiVersion: string
+  previewSecretId: `${string}.${string}`
 }): DefaultDocumentNodeResolver => {
-    return (S, { schemaType }) => {
-        if (PREVIEWABLE_DOCUMENT_TYPES.includes(schemaType)) {
-            return S.document().views([
-                // Default form view
-                S.view.form(),
-                // Preview
-                S.view
-                    .component(props => (
-                        <PreviewPane
-                            previewSecretId={previewSecretId}
-                            apiVersion={apiVersion}
-                            {...props}
-                        />
-                    ))
-                    .title("Preview"),
-            ]);
-        }
+  return (S, { schemaType }) => {
+    if (PREVIEWABLE_DOCUMENT_TYPES.includes(schemaType)) {
+      return S.document().views([
+        // Default form view
+        S.view.form(),
+        // Preview
+        S.view
+          .component((props) => (
+            <PreviewPane
+              previewSecretId={previewSecretId}
+              apiVersion={apiVersion}
+              {...props}
+            />
+          ))
+          .title('Preview'),
+      ])
+    }
 
-        return null;
-    };
-};
+    return null
+  }
+}

@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import { useEffect } from "react";
+import { useEffect } from 'react'
 
 /**
  * Workaround to force pages to scroll to the top when navigating with `<Link>`.
@@ -9,7 +9,7 @@ import { useEffect } from "react";
  */
 
 export default function ScrollUp() {
-    useEffect(() => window.document.scrollingElement?.scrollTo(0, 0), []);
+  useEffect(() => window.document.scrollingElement?.scrollTo(0, 0), [])
 
-    return null;
+  return null
 }
