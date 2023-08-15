@@ -51,8 +51,8 @@ dependencies:
     specifier: 13.4.16
     version: 13.4.16(@babel/core@7.22.9)(react-dom@18.2.0)(react@18.2.0)
   next-sanity:
-    specifier: 5.1.2
-    version: 5.1.2(@sanity/client@6.4.0)(@sanity/icons@2.4.1)(@sanity/types@3.14.4)(@sanity/ui@1.7.4)(@types/styled-components@5.1.26)(next@13.4.16)(react@18.2.0)(sanity@3.14.4)(styled-components@5.3.11)
+    specifier: 5.4.0
+    version: 5.4.0(@sanity/client@6.4.0)(@sanity/icons@2.4.1)(@sanity/types@3.14.4)(@sanity/ui@1.7.4)(@types/styled-components@5.1.26)(next@13.4.16)(react@18.2.0)(sanity@3.14.4)(styled-components@5.3.11)
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -1177,6 +1177,17 @@ packages:
       - supports-color
     dev: false
 
+  /@sanity/client@6.4.6:
+    resolution: {integrity: sha512-MtSYgmDkYyQSosO2GTtlYa0xl9K5fpQvTA1dcgk2XxIqweZEHVi4iDdsEA3JvyoEaURUtQkng8MdYcMzWxPAUg==}
+    engines: {node: '>=14.18'}
+    dependencies:
+      '@sanity/eventsource': 5.0.0
+      get-it: 8.4.2
+      rxjs: 7.8.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /@sanity/color@2.2.5:
     resolution: {integrity: sha512-tTi22KoKuER3sldXYl4c1Dq2zU7tMLDkljFiaUKVkBbu4PBvRGCFw75kXZnD2b4Bsp6vin+7sI+AKdCKRhfRuw==}
     dev: false
@@ -1238,16 +1249,16 @@ packages:
       - react-is
     dev: false
 
-  /@sanity/groq-store@2.3.0:
-    resolution: {integrity: sha512-vj5uDeNQlhwyviEgq3cq0nobMHToBMYXPL1HSFKKuScxow1JO5RIt4KNnUoFyPQTcgsVcpGsg2RKbXMJ8GsqGw==}
+  /@sanity/groq-store@4.0.4:
+    resolution: {integrity: sha512-Bk1ZsS6PGeCtmP8a4FJfvHws1WlnQUPdcr9MbO38Fbbtp55ZdLjTbxozxo//mK7jsbmNxf2HjpQ1mm5jDI49RQ==}
     engines: {node: '>=14.18'}
     dependencies:
       '@sanity/eventsource': 5.0.0
-      '@sanity/types': 3.14.4
+      '@sanity/types': 3.15.1
       fast-deep-equal: 3.1.3
-      groq: 3.14.3
-      groq-js: 1.1.9
-      mendoza: 2.1.1
+      groq: 3.15.1
+      groq-js: 1.1.12
+      mendoza: 3.0.3
       simple-get: 4.0.1
       split2: 4.2.0
       throttle-debounce: 5.0.0
@@ -1363,11 +1374,11 @@ packages:
       - supports-color
     dev: false
 
-  /@sanity/preview-kit@2.3.3(@sanity/client@6.4.0)(react@18.2.0):
-    resolution: {integrity: sha512-4TREUzu3Yfiys3SWmYMLQN+ifUYaVoDG/+CLDEOlI9p3LpO+V6z/OfXhrTjIPy+dNnbl320hipCdHGwdF2g6xw==}
+  /@sanity/preview-kit@3.1.0(@sanity/client@6.4.0)(react@18.2.0):
+    resolution: {integrity: sha512-OkKORSbjt1R8XRgG7nS24tXk4AiuQTmU+yqgpNioiUt30QKQ4gFSGCx4A/3rMCz90cnHY6VbKSVyrHzU4Kbk4w==}
     engines: {node: '>=14'}
     peerDependencies:
-      '@sanity/client': ^6.1.4
+      '@sanity/client': ^6.4.6
       react: ^18.0.0
     peerDependenciesMeta:
       react:
@@ -1375,15 +1386,14 @@ packages:
     dependencies:
       '@sanity/client': 6.4.0
       '@sanity/eventsource': 5.0.0
-      '@sanity/groq-store': 2.3.0
+      '@sanity/groq-store': 4.0.4
       '@vercel/stega': 0.1.0
       lodash.get: 4.4.2
       lodash.isplainobject: 4.0.6
-      lru-cache: 10.0.0
-      mendoza: 2.1.1
+      lru-cache: 10.0.1
+      mendoza: 3.0.3
       react: 18.2.0
       react-fast-compare: 3.2.2
-      tiny-invariant: 1.3.1
       use-sync-external-store: 1.2.0(react@18.2.0)
     transitivePeerDependencies:
       - supports-color
@@ -1427,6 +1437,15 @@ packages:
     resolution: {integrity: sha512-0fC3EgPjxRn8ugwRKXZWvjhcHKU1na59GjbS2ME5U2wCqRBNwCYs5fT8SQh19EGHi/NoiTs/mlfcL19B4XF25Q==}
     dependencies:
       '@sanity/client': 6.4.0
+      '@types/react': 18.2.18
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /@sanity/types@3.15.1:
+    resolution: {integrity: sha512-B24SrVAJfCiF8q+JeTUtUqGjuX9YQj+ytdPcDNVbduIMeQeOmS6keumTvXZ7OS8OK0pgsffP5kUE00KWHgbPxg==}
+    dependencies:
+      '@sanity/client': 6.4.6
       '@types/react': 18.2.18
     transitivePeerDependencies:
       - supports-color
@@ -3720,6 +3739,24 @@ packages:
       - supports-color
     dev: false
 
+  /get-it@8.4.2:
+    resolution: {integrity: sha512-xseDj1loKLcPYKhdlP2k7ZYDE03jTrHgRNt0AURtALOu+8pREmBn+UxZ4JbsxpQ8AvupgmpYuuTa3cS1mtuy2w==}
+    engines: {node: '>=14.0.0'}
+    dependencies:
+      debug: 4.3.4(supports-color@5.5.0)
+      decompress-response: 7.0.0
+      follow-redirects: 1.15.2(debug@4.3.4)
+      into-stream: 6.0.0
+      is-plain-object: 5.0.0
+      is-retry-allowed: 2.2.0
+      is-stream: 2.0.1
+      parse-headers: 2.0.5
+      progress-stream: 2.0.0
+      tunnel-agent: 0.6.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /get-random-values-esm@1.0.0:
     resolution: {integrity: sha512-BVgZ1PZwR5NKDpHpUcPmWcAQpoIOPXaFy6Vni3UdPbOlxO7eknhxsfytxwss16f75EABfnAC+XZjzTurNlPY/g==}
     dependencies:
@@ -3919,6 +3956,11 @@ packages:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
 
+  /groq-js@1.1.12:
+    resolution: {integrity: sha512-02KhsoLuTwr/MOf6bBzt+rQOj+QuLoZ5IDDkzXM2NWY73CF1d29KTRBffzCAjsjBvY7kn+oQcwPdQVb3vBkl9w==}
+    engines: {node: '>= 14'}
+    dev: false
+
   /groq-js@1.1.9:
     resolution: {integrity: sha512-Kml1SgKotOOEmm1rK1w/K4UprIWJ/UU0SzeO2dPy8ab2wcAGfE82X5CTdaD1AMaP+40Ug1gAsVgPF5S2H/fcPw==}
     engines: {node: '>= 14'}
@@ -3926,6 +3968,11 @@ packages:
 
   /groq@3.14.3:
     resolution: {integrity: sha512-qCRtit4VBXJ8gIY9tquMnsLsNnKfmKrd8x9uv/SjEaKvoMlGdfzjQcx1RP/ygS7mmNqw4O+9cQjxozP9aM0Drw==}
+    engines: {node: '>=14'}
+    dev: false
+
+  /groq@3.15.1:
+    resolution: {integrity: sha512-gRSMFXSDCVE9/69YfhIb4ymh2naGp+JtyrIDBzWrNpZghC/9W4bAkDmHqoWESiTbbpetYZrrFRF3yvcuW7daqA==}
     engines: {node: '>=14'}
     dev: false
 
@@ -4654,8 +4701,8 @@ packages:
     dependencies:
       js-tokens: 4.0.0
 
-  /lru-cache@10.0.0:
-    resolution: {integrity: sha512-svTf/fzsKHffP42sujkO/Rjs37BCIsQVRCeNYIm9WN8rgT7ffoUnRtZCqU+6BqcSBdv8gwJeTz8knJpgACeQMw==}
+  /lru-cache@10.0.1:
+    resolution: {integrity: sha512-IJ4uwUTi2qCccrioU6g9g/5rvvVl13bsdczUUcqbciD9iLr095yj8DQKdObriEvuNSx325N1rV1O0sJFszx75g==}
     engines: {node: 14 || >=16.14}
     dev: false
 
@@ -4693,6 +4740,11 @@ packages:
   /mendoza@2.1.1:
     resolution: {integrity: sha512-8f3Se8HDfobXCsdESXZBSSYcVzIRi+cMIEmz/SR4bjgFEjHJaXzrsBYr+vyrFGEtK5xTpCcU+DiwxWJV6hCuhQ==}
     engines: {node: '>=10'}
+    dev: false
+
+  /mendoza@3.0.3:
+    resolution: {integrity: sha512-xh0Angj7/kuLzJHglH7dVetoSyUt1/2wjmuugB0iBftteS6+xKvwC+bhs+IvF9tITdEdZpIl0XT5QLaL18A5dA==}
+    engines: {node: '>=14.18'}
     dev: false
 
   /merge-stream@2.0.0:
@@ -4824,11 +4876,11 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /next-sanity@5.1.2(@sanity/client@6.4.0)(@sanity/icons@2.4.1)(@sanity/types@3.14.4)(@sanity/ui@1.7.4)(@types/styled-components@5.1.26)(next@13.4.16)(react@18.2.0)(sanity@3.14.4)(styled-components@5.3.11):
-    resolution: {integrity: sha512-nzfir4ObrZ0vc8i3KpPC5iE9O/rGqSHn6+lZaEcwjY575NM3DtSW5yGumqTJi/fOJr5Ru1IqRyBS3Q3GpG8okg==}
+  /next-sanity@5.4.0(@sanity/client@6.4.0)(@sanity/icons@2.4.1)(@sanity/types@3.14.4)(@sanity/ui@1.7.4)(@types/styled-components@5.1.26)(next@13.4.16)(react@18.2.0)(sanity@3.14.4)(styled-components@5.3.11):
+    resolution: {integrity: sha512-aiRRYohgfdpOIQPmYWqDNudNxd4pH2lsOdiicVcso2ReVTPX68Bg5mdMRJoSU/95HnS7pfhGv7EJsrn/OffUtw==}
     engines: {node: '>=16.14'}
     peerDependencies:
-      '@sanity/client': ^6.1.4
+      '@sanity/client': ^6.4.6
       '@sanity/icons': ^2.0.0
       '@sanity/types': ^3.0.0
       '@sanity/ui': ^1.0.0
@@ -4840,7 +4892,7 @@ packages:
     dependencies:
       '@sanity/client': 6.4.0
       '@sanity/icons': 2.4.1(react@18.2.0)
-      '@sanity/preview-kit': 2.3.3(@sanity/client@6.4.0)(react@18.2.0)
+      '@sanity/preview-kit': 3.1.0(@sanity/client@6.4.0)(react@18.2.0)
       '@sanity/types': 3.14.4
       '@sanity/ui': 1.7.4(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       '@sanity/webhook': 2.0.0
@@ -6585,10 +6637,6 @@ packages:
 
   /tiny-invariant@1.0.6:
     resolution: {integrity: sha512-FOyLWWVjG+aC0UqG76V53yAWdXfH8bO6FNmyZOuUrzDzK8DI3/JRY25UD7+g49JWM1LXwymsKERB+DzI0dTEQA==}
-    dev: false
-
-  /tiny-invariant@1.3.1:
-    resolution: {integrity: sha512-AD5ih2NlSssTCwsMznbvwMZpJ1cbhkGd2uueNxzv2jDlEeZdU04JQfRnggJQ8DrcVBGjAsCKwFBbDlVNtEMlzw==}
     dev: false
 
   /tiny-warning@1.0.3:
