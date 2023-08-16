@@ -17,7 +17,7 @@
     "@sanity/google-maps-input": "3.0.1",
     "@sanity/icons": "2.4.1",
     "@sanity/image-url": "1.0.2",
-    "@sanity/ui": "1.7.7",
+    "@sanity/ui": "1.7.8",
     "@sanity/vision": "3.15.1",
     "@tailwindcss/container-queries": "0.1.1",
     "@vercel/analytics": "1.0.2",
