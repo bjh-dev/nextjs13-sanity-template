@@ -6,6 +6,9 @@ import { Metadata } from 'next'
 import { Inter, Roboto_Mono } from 'next/font/google'
 import React from 'react'
 
+import Footer from '@/components/global/Footer'
+import ThemeProvider from '@/components/theme-provider'
+
 if (process.env.NODE_ENV === 'production') {
   // eslint-disable-next-line no-console, func-names, @typescript-eslint/no-empty-function
   console.log = function () {}
@@ -56,9 +59,13 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${robotoMono.variable} font-sans`}
+      suppressHydrationWarning
     >
       <body>
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+          <Footer />
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>
