@@ -10,6 +10,7 @@ export interface HomePageProps {
 
 function HomePage({ data }: HomePageProps) {
   const { title } = data
+  console.log(data)
 
   return (
     <>

@@ -19,7 +19,7 @@ const robotoMono = Roboto_Mono({
   variable: '--font-roboto-mono',
 })
 
-export default function RootLayout({
+export default function StudioLayout({
   children,
 }: {
   children: React.ReactNode
@@ -28,9 +28,8 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${robotoMono.variable} font-sans`}
-      suppressHydrationWarning
     >
-      <body suppressHydrationWarning>{children}</body>
+      <body>{children}</body>
     </html>
   )
 }
