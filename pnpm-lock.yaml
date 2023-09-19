@@ -81,8 +81,8 @@ dependencies:
     specifier: 4.10.1
     version: 4.10.1(react@18.2.0)
   react-player:
-    specifier: 2.12.0
-    version: 2.12.0(react@18.2.0)
+    specifier: 2.13.0
+    version: 2.13.0(react@18.2.0)
   sanity:
     specifier: 3.15.1
     version: 3.15.1(@types/node@20.5.7)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
@@ -6607,8 +6607,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-player@2.12.0(react@18.2.0):
-    resolution: {integrity: sha512-rymLRz/2GJJD+Wc01S7S+i9pGMFYnNmQibR2gVE3KmHJCBNN8BhPAlOPTGZtn1uKpJ6p4RPLlzPQ1OLreXd8gw==}
+  /react-player@2.13.0(react@18.2.0):
+    resolution: {integrity: sha512-gkY7ZdbVFztlKFFhCPcnDrFQm+L399b8fhWsKatZ+b2wpKJwfUHBXQFMRxqYQGT0ic1/wQ7D7EZEWy7ZBqk2pw==}
     peerDependencies:
       react: '>=16.6.0'
     dependencies:
