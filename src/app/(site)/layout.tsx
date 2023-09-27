@@ -2,18 +2,28 @@ import '@/app/globals.css'
 
 import { Analytics } from '@vercel/analytics/react'
 import { Metadata } from 'next'
-import { ReactNode } from 'react'
+// eslint-disable-next-line camelcase
+import { Inter, Roboto_Mono } from 'next/font/google'
+import React from 'react'
 
+import Favicon from '@/components/global/Favicon'
 import Footer from '@/components/global/Footer'
 import ThemeProvider from '@/components/theme-provider'
-import { settingsQuery } from '@/lib/queries'
-import { SettingsPayload } from '@/lib/types'
-import { getClient } from '@/sanity/lib/client'
 
 if (process.env.NODE_ENV === 'production') {
   // eslint-disable-next-line no-console, func-names, @typescript-eslint/no-empty-function
   console.log = function () {}
 }
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
+
+const robotoMono = Roboto_Mono({
+  subsets: ['latin'],
+  variable: '--font-roboto-mono',
+})
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -41,21 +51,27 @@ export const metadata: Metadata = {
   },
 }
 
-const PagesLayout = async ({ children }: { children: ReactNode }) => {
-  const client = getClient()
-
-  const [settings] = await Promise.all([
-    client.fetch<SettingsPayload>(settingsQuery),
-  ])
+export default function PagesLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <main suppressHydrationWarning>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        {children}
-        <Footer {...settings} />
-      </ThemeProvider>
-      <Analytics />
-    </main>
+    <html
+      lang="en"
+      className={`${inter.variable} ${robotoMono.variable} font-sans`}
+      suppressHydrationWarning
+    >
+      <head>
+        <Favicon />
+      </head>
+      <body suppressHydrationWarning>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+          <Footer />
+        </ThemeProvider>
+        <Analytics />
+      </body>
+    </html>
   )
 }
-
-export default PagesLayout

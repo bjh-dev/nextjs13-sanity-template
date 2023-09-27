@@ -1,42 +1,35 @@
-import './globals.css'
+import '@/app/globals.css'
 
 // eslint-disable-next-line camelcase
-import { Playfair_Display, Public_Sans } from 'next/font/google'
-import { ReactNode } from 'react'
+import { Inter, Roboto_Mono } from 'next/font/google'
+import React from 'react'
 
-import Favicon from '@/components/global/Favicon'
-
-const playfair = Playfair_Display({
-  variable: '--playfair',
-  subsets: ['latin-ext'],
-  display: 'swap',
-})
-
-const publicSans = Public_Sans({
-  variable: '--public_sans',
-  subsets: ['latin-ext'],
-  display: 'swap',
-})
-
-export const metadata = {
-  title: 'Grasslands Church | Cairnlea',
-  description:
-    'You can grow in faith, hope & love with a Missional Community at Grasslands Church',
+if (process.env.NODE_ENV === 'production') {
+  // eslint-disable-next-line no-console, func-names, @typescript-eslint/no-empty-function
+  console.log = function () {}
 }
-export default async function RootLayout({
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
+
+const robotoMono = Roboto_Mono({
+  subsets: ['latin'],
+  variable: '--font-roboto-mono',
+})
+
+export default function RootLayout({
   children,
 }: {
-  children: ReactNode
+  children: React.ReactNode
 }) {
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${publicSans.variable} font-sans font-extralight text-tuatara-800`}
+      className={`${inter.variable} ${robotoMono.variable} font-sans`}
       suppressHydrationWarning
     >
-      <head>
-        <Favicon />
-      </head>
       <body suppressHydrationWarning>{children}</body>
     </html>
   )

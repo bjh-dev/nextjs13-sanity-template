@@ -44,9 +44,6 @@ dependencies:
   '@vercel/analytics':
     specifier: 1.0.2
     version: 1.0.2
-  blueimp-md5:
-    specifier: ^2.19.0
-    version: 2.19.0
   class-variance-authority:
     specifier: 0.7.0
     version: 0.7.0
@@ -115,9 +112,6 @@ devDependencies:
   '@tailwindcss/typography':
     specifier: 0.5.10
     version: 0.5.10(tailwindcss@3.3.3)
-  '@types/blueimp-md5':
-    specifier: ^2.18.0
-    version: 2.18.0
   '@types/js-cookie':
     specifier: 3.0.4
     version: 3.0.4
@@ -2243,10 +2237,6 @@ packages:
     engines: {node: '>= 10'}
     dev: false
 
-  /@types/blueimp-md5@2.18.0:
-    resolution: {integrity: sha512-f4A+++lGZGJvVSgeyMkqA7BEf2BVQli6F+qEykKb49c5ieWQBkfpn6CP5c1IZr2Yi2Ofl6Fj+v0e1fN18Z8Cnw==}
-    dev: true
-
   /@types/event-source-polyfill@1.0.1:
     resolution: {integrity: sha512-dls8b0lUgJ/miRApF0efboQ9QZnAm7ofTO6P1ILu8bRPxUFKDxVwFf8+TeuuErmNui6blpltyr7+eV72dbQXlQ==}
     dev: false
@@ -2930,10 +2920,6 @@ packages:
       buffer: 5.7.1
       inherits: 2.0.4
       readable-stream: 3.6.2
-    dev: false
-
-  /blueimp-md5@2.19.0:
-    resolution: {integrity: sha512-DRQrD6gJyy8FbiE4s+bDoXS9hiW3Vbx5uCdwvcCf3zLHL+Iv7LtGHLpr+GZV8rHG8tK766FGYBwRbu8pELTt+w==}
     dev: false
 
   /bplist-parser@0.2.0:

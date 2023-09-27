@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 
 import Page from '@/components/pages/page/Page'
 import PagePreview from '@/components/pages/page/PagePreview'
-import { pagesBySlugQuery, settingsQuery } from '@/lib/queries'
+import { pageBySlugQuery, settingsQuery } from '@/lib/queries'
 import { PagePayload, SettingsPayload } from '@/lib/types'
 import { readToken } from '@/sanity/lib/api'
 import { getClient } from '@/sanity/lib/client'
@@ -22,7 +22,7 @@ export async function generateMetadata({
   const { slug } = params
   const [settings, page] = await Promise.all([
     client.fetch<SettingsPayload>(settingsQuery),
-    client.fetch<PagePayload>(pagesBySlugQuery, { slug }),
+    client.fetch<PagePayload>(pageBySlugQuery, { slug }),
   ])
 
   const openGraphImages = page?.seo.image
@@ -81,7 +81,7 @@ const PagesSlugRoute = async ({ params }: { params: { slug: string } }) => {
     : undefined
   const client = getClient(preview)
   const [page] = await Promise.all([
-    client.fetch<PagePayload>(pagesBySlugQuery, { slug }),
+    client.fetch<PagePayload>(pageBySlugQuery, { slug }),
   ])
 
   if (!page && !preview) {

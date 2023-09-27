@@ -1,15 +1,13 @@
-import { HiDocumentDuplicate } from 'react-icons/hi2'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
-  type: 'document',
   name: 'page',
-  title: 'Pages',
-  icon: HiDocumentDuplicate,
+  title: 'Page',
+  type: 'document',
   groups: [
     {
-      name: 'content',
       title: 'Content',
+      name: 'content',
       default: true,
     },
     {
@@ -19,45 +17,20 @@ export default defineType({
   ],
   fields: [
     defineField({
-      type: 'string',
       name: 'title',
       title: 'Title',
+      type: 'string',
       group: 'content',
-      validation: (rule) => rule.required(),
     }),
     defineField({
-      type: 'slug',
       name: 'slug',
       title: 'Slug',
+      type: 'slug',
       group: 'content',
       options: {
         source: 'title',
+        maxLength: 96,
       },
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'overview',
-      description:
-        'Used both for the <meta> description tag for SEO, and the personal website subheader.',
-      title: 'Description',
-      type: 'portableTextSimple',
-      group: 'content',
-    }),
-    defineField({
-      name: 'pageHeader',
-      title: 'Page Header',
-      type: 'pageHeader',
-      group: 'content',
-      options: {
-        collapsible: true,
-      },
-    }),
-    defineField({
-      name: 'pageContent',
-      title: 'Page Content',
-      type: 'array',
-      group: 'content',
-      of: [{ type: 'centeredText' }],
     }),
     defineField({
       name: 'seo',
@@ -66,15 +39,4 @@ export default defineType({
       group: 'seo',
     }),
   ],
-  preview: {
-    select: {
-      title: 'title',
-    },
-    prepare({ title }) {
-      return {
-        subtitle: 'Page',
-        title,
-      }
-    },
-  },
 })

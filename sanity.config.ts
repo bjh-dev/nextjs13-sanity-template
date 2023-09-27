@@ -51,6 +51,7 @@ export default defineConfig({
       apiKey: '',
       defaultZoom: 11,
       defaultLocale: 'en',
+      defaultLocation: { lat: -37.8136, lng: 144.9631 },
     }),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),

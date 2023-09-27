@@ -3,7 +3,7 @@
 import { useLiveQuery } from 'next-sanity/preview'
 
 import Page from '@/components/pages/page/Page'
-import { pagesBySlugQuery } from '@/lib/queries'
+import { pageBySlugQuery } from '@/lib/queries'
 import { PagePayload } from '@/lib/types'
 
 type PageProps = {
@@ -11,7 +11,7 @@ type PageProps = {
 }
 
 function HomePagePreview({ data: initialData }: PageProps) {
-  const [data] = useLiveQuery<PagePayload | null>(initialData, pagesBySlugQuery)
+  const [data] = useLiveQuery<PagePayload | null>(initialData, pageBySlugQuery)
 
   if (!data) {
     return (
