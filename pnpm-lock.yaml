@@ -45,7 +45,7 @@ dependencies:
     specifier: 1.0.2
     version: 1.0.2
   blueimp-md5:
-    specifier: ^2.19.0
+    specifier: 2.19.0
     version: 2.19.0
   class-variance-authority:
     specifier: 0.7.0
@@ -101,6 +101,9 @@ dependencies:
   tailwind-merge:
     specifier: 1.14.0
     version: 1.14.0
+  tailwindcss:
+    specifier: 3.3.3
+    version: 3.3.3
   tailwindcss-animate:
     specifier: 1.0.6
     version: 1.0.6(tailwindcss@3.3.3)
@@ -116,7 +119,7 @@ devDependencies:
     specifier: 0.5.10
     version: 0.5.10(tailwindcss@3.3.3)
   '@types/blueimp-md5':
-    specifier: ^2.18.0
+    specifier: 2.18.0
     version: 2.18.0
   '@types/js-cookie':
     specifier: 3.0.4
@@ -184,9 +187,6 @@ devDependencies:
   prettier-plugin-tailwindcss:
     specifier: 0.5.3
     version: 0.5.3(prettier@3.0.2)
-  tailwindcss:
-    specifier: 3.3.3
-    version: 3.3.3
   typescript:
     specifier: 5.2.2
     version: 5.2.2
