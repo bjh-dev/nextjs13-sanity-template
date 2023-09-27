@@ -1,7 +1,10 @@
-import { LuMail } from 'react-icons/lu'
-
 import ScrollUp from '@/components/ScollUp'
-import { Button } from '@/components/ui/button'
+import BoxedTextWithImages from '@/components/sections/BoxedTextWithImages'
+import CenteredText from '@/components/sections/CenteredText'
+import Form from '@/components/sections/Form'
+import Steps from '@/components/sections/Steps'
+import TextWithVideo from '@/components/sections/TextWithVideo'
+import PageHeader from '@/components/ui/PageHeader'
 import { HomePagePayload } from '@/lib/types'
 
 export interface HomePageProps {
@@ -9,15 +12,37 @@ export interface HomePageProps {
 }
 
 function HomePage({ data }: HomePageProps) {
-  const { title } = data
-  console.log(data)
+  // console.log(data)
 
   return (
     <>
-      <h1 className="text-3xl">{title}</h1>
-      <Button className="mt-4">
-        <LuMail className="mr-2 h-4 w-4" /> Login with Email
-      </Button>
+      <PageHeader {...data.pageHeader} />
+      <section className="sections flex flex-col">
+        {data?.pageContent?.map((s) => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          let el: any = null
+          switch (s._type) {
+            case 'centeredText':
+              el = <CenteredText key={s._key} {...s} />
+              break
+            case 'boxedTextWithImages':
+              el = <BoxedTextWithImages key={s._key} {...s} />
+              break
+            case 'textWithVideo':
+              el = <TextWithVideo key={s._key} {...s} />
+              break
+            case 'steps':
+              el = <Steps key={s._key} {...s} />
+              break
+            case 'formSection':
+              el = <Form key={s._key} {...s} />
+              break
+            default:
+              el = null
+          }
+          return el
+        })}
+      </section>
       {/* Workaround: scroll to top on route change */}
       <ScrollUp />
     </>

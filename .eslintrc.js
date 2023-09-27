@@ -42,6 +42,7 @@ module.exports = {
     'react/require-default-props': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/no-explicit-any': 'error',
+    'react/destructuring-assignment': 'off',
     'react/react-in-jsx-scope': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',

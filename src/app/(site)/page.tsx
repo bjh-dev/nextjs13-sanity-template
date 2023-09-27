@@ -1,9 +1,10 @@
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
-import { notFound } from 'next/navigation'
 
-import HomePage from '@/components/pages/home/HomePage'
-import HomePagePreview from '@/components/pages/home/HomePagePreview'
+// import { notFound } from 'next/navigation'
+// import HomePage from '@/components/pages/home/HomePage'
+// import HomePagePreview from '@/components/pages/home/HomePagePreview'
+import LandingPage from '@/components/pages/home/LandingPage'
 import { homePageQuery, settingsQuery } from '@/lib/queries'
 import { HomePagePayload, SettingsPayload } from '@/lib/types'
 import { readToken } from '@/sanity/lib/api'
@@ -46,10 +47,10 @@ export async function generateMetadata(): Promise<Metadata> {
     : []
 
   return {
-    title: home.seo.title || home.title || '',
+    title: (home.seo.title || home.title) ?? '',
     description: home.seo.description || '',
     openGraph: {
-      title: home.seo.title || home.title || '',
+      title: (home.seo.title || home.title) ?? '',
       description: home.seo.description || '',
       url:
         process.env.NODE_ENV === 'production'
@@ -62,20 +63,26 @@ export async function generateMetadata(): Promise<Metadata> {
     },
   }
 }
-const HomeIndexRoute = async () => {
-  const preview = draftMode().isEnabled
-    ? { token: readToken as string }
-    : undefined
-  const client = getClient(preview)
-  const [home] = await Promise.all([
-    client.fetch<HomePagePayload>(homePageQuery),
-  ])
 
-  if (!home && !preview) {
-    notFound()
-  }
+// Enable when site goes live
+// const HomeIndexRoute = async () => {
+//   const preview = draftMode().isEnabled
+//     ? { token: readToken as string }
+//     : undefined
+//   const client = getClient(preview)
+//   const [home] = await Promise.all([
+//     client.fetch<HomePagePayload>(homePageQuery),
+//   ])
 
-  return preview ? <HomePagePreview data={home} /> : <HomePage data={home} />
+//   if (!home && !preview) {
+//     notFound()
+//   }
+
+//   return preview ? <HomePagePreview data={home} /> : <HomePage data={home} />
+// }
+
+function HomeIndexRoute() {
+  return <LandingPage />
 }
 
 export default HomeIndexRoute

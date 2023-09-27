@@ -1,7 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { fontFamily } = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  darkMode: ['class'],
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -11,67 +12,107 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
-      screens: {
-        '2xl': '1400px',
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5rem',
+        '2xl': '6rem',
+      },
+    },
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      'satin-linen': {
+        DEFAULT: '#ECE5D5',
+        50: '#fefefd',
+        100: '#fdfcfb',
+        200: '#faf9f5',
+        300: '#f7f5ee',
+        400: '#f2ede2',
+        500: '#ECE5D5',
+        600: '#d4cec0',
+        700: '#b1aca0',
+        800: '#8e8980',
+        900: '#747068',
+      },
+      'indian-khaki': {
+        DEFAULT: '#c4b08f',
+        50: '#fcfbf9',
+        100: '#f9f7f4',
+        200: '#f0ebe3',
+        300: '#e7dfd2',
+        400: '#d6c8b1',
+        500: '#c4b08f',
+        600: '#b09e81',
+        700: '#93846b',
+        800: '#766a56',
+        900: '#605646',
+      },
+      tuatara: {
+        DEFAULT: '#383637',
+        50: '#f5f5f5',
+        100: '#ebebeb',
+        200: '#cdcdcd',
+        300: '#afafaf',
+        400: '#747273',
+        500: '#383637',
+        600: '#323132',
+        700: '#2a2929',
+        800: '#222021',
+        900: '#1b1a1b',
+      },
+      ronchi: {
+        DEFAULT: '#f7c548',
+        50: '#fffcf6',
+        100: '#fef9ed',
+        200: '#fdf1d1',
+        300: '#fce8b6',
+        400: '#f9d67f',
+        500: '#f7c548',
+        600: '#deb141',
+        700: '#b99436',
+        800: '#94762b',
+        900: '#796123',
+      },
+      rope: {
+        DEFAULT: '#9b5a30',
+        50: '#faf7f5',
+        100: '#f5efea',
+        200: '#e6d6cb',
+        300: '#d7bdac',
+        400: '#b98c6e',
+        500: '#9b5a30',
+        600: '#8c512b',
+        700: '#744424',
+        800: '#5d361d',
+        900: '#4c2c18',
+      },
+      axolotl: {
+        DEFAULT: '#48623e',
+        50: '#f6f7f5',
+        100: '#edefec',
+        200: '#d1d8cf',
+        300: '#b6c0b2',
+        400: '#7f9178',
+        500: '#48623e',
+        600: '#415838',
+        700: '#364a2f',
+        800: '#2b3b25',
+        900: '#23301e',
       },
     },
     extend: {
-      colors: {
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
-        },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
-        },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
-        },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
-        },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
-        },
-      },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
-      },
-      keyframes: {
-        'accordion-down': {
-          from: { height: 0 },
-          to: { height: 'var(--radix-accordion-content-height)' },
-        },
-        'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: 0 },
-        },
-      },
-      animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
+      fontFamily: {
+        sans: ['var(--public_sans)', ...fontFamily.sans],
+        serif: ['var(--playfair)', ...fontFamily.serif],
       },
     },
   },
-  plugins: ['tailwindcss-animate'],
+  plugins: [
+    '@tailwindcss/forms',
+    '@tailwindcss/typography',
+    '@tailwindcss/aspect-ratio',
+    '@tailwindcss/container-queries',
+  ],
 }

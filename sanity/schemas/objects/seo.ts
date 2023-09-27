@@ -7,32 +7,43 @@ export default defineType({
   name: 'seo',
   title: 'SEO',
   type: 'object',
+  options: {
+    collapsible: true,
+    collapsed: false,
+  },
   fields: [
     defineField({
+      name: 'noIndex',
+      description: 'Hide this page from search engines and the sitemap',
+      type: 'boolean',
+      initialValue: false,
+    }),
+    defineField({
       name: 'title',
-      title: 'Title',
       type: 'string',
-      validation: (Rule) => Rule.required().min(15).max(60),
+      description:
+        'This is the title that will appear in search results and the first line on social media preview cards.',
+      validation: (Rule) => Rule.min(20).max(60),
       components: { input: CharacterCounterField },
     }),
     defineField({
       name: 'description',
-      title: 'Description',
+      description:
+        'This is the description that will appear in search results and the second line on social media preview cards.',
       type: 'text',
       rows: 3,
-      validation: (Rule) => Rule.required().min(40).max(220),
+      validation: (Rule) => Rule.max(180).min(60),
       components: { input: CharacterCounterField },
     }),
     defineField({
       name: 'image',
-      title: 'Image',
       type: 'image',
-      options: {
-        hotspot: true,
-      },
+      description:
+        'The image that appears on the search results and social media preview cards. Facebook recommends a minimum size of 1200x630 pixels.',
+      options: { hotspot: true },
       validation: (rule) =>
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        rule.required().custom((value: any) => {
+        rule.custom((value: any) => {
           if (!value?.image?.asset?._ref) {
             return true
           }
@@ -51,12 +62,6 @@ export default defineType({
 
           return true
         }),
-    }),
-    defineField({
-      name: 'noIndex',
-      description: 'Hide this page from search engines and the sitemap',
-      type: 'boolean',
-      initialValue: false,
     }),
   ],
 })
