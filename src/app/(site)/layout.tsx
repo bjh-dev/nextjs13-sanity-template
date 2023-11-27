@@ -1,7 +1,7 @@
 import '@/app/globals.css'
 
 import { Analytics } from '@vercel/analytics/react'
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 // eslint-disable-next-line camelcase
 import { Inter, Roboto_Mono } from 'next/font/google'
 import React from 'react'
@@ -37,18 +37,19 @@ export const metadata: Metadata = {
   authors: [{ name: 'Bryan Hickey', url: 'https://www.bryanjhickey.com/' }],
   creator: 'Bryan J. Hickey',
   publisher: 'Bryan J. Hickey',
-  themeColor: '#ffffff',
   manifest: '/site.webmanifest.json',
   icons: {
     icon: '/images/favicon/favicon-32x32.png',
     shortcut: '/images/favicon/favicon-32x32.png',
     apple: '/images/favicon/apple-touch-icon.png',
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: 'black',
 }
 
 export default function PagesLayout({
